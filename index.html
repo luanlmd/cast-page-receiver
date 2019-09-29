@@ -11,15 +11,14 @@
     <body>
         <iframe src="https://www.eduzz.com" scrolling="no"></iframe>
         <script>
-            window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+            const castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
             
-            const customMessageBus = window.castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.wateva', cast.receiver.CastMessageBus.MessageType.JSON);
-            customMessageBus.onMessage = (event) => {
+            const messageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.wateva', cast.receiver.CastMessageBus.MessageType.JSON);
+            messageBus.onMessage = (event) => {
                 console.log(event);
             }
             
-            window.castReceiverManager.start();
-
+            castReceiverManager.start();
             
         </script>
     </body>
