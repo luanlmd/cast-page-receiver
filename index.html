@@ -15,7 +15,7 @@
             window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
             window.castReceiverManager.start();
 
-            const customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.receiver');
+            const customMessageBus = window.castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.receiver');
             customMessageBus.onMessage = (event) => {
                 console.log(event);
             }
