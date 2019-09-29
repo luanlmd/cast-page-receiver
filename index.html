@@ -15,7 +15,7 @@
             const CUSTOM_NS = 'urn:x-cast:com.luanlmd.cast-page';
      
             const context = cast.framework.CastReceiverContext.getInstance();
-            const options = cast.framework.CastReceiverOptions();
+            const options = {};
             options.customNamespaces = {
                 [CUSTOM_NS]: cast.framework.system.MessageType.JSON
             };
@@ -24,7 +24,7 @@
                 console.log(event);
             });
 
-            context.start();
+            context.start(options);
 
             setInterval(() => {
                 context.sendCustomMessage(CUSTOM_NS , { type:'test', value:'uhul' });
