@@ -12,10 +12,11 @@
     <body>
         <iframe src="https://www.eduzz.com" scrolling="no"></iframe>
         <script>
-            const CUSTOM_NS = 'urn:x-cast:com.luanlmd.cast-page';
+            const CUSTOM_NS = 'urn:x-cast:wateva';
      
             const context = cast.framework.CastReceiverContext.getInstance();
             const options = new cast.framework.CastReceiverOptions();
+
             options.customNamespaces = {
                 [CUSTOM_NS]: cast.framework.system.MessageType.JSON
             };
