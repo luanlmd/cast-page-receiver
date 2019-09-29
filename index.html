@@ -38,31 +38,4 @@
         </script>
     </body>
 
-</html>height: 100vh; width: 100vw; }
-        </style>
-    </head>
-    <body>
-        <iframe src="https://www.eduzz.com" scrolling="no"></iframe>
-        <script>
-            const CUSTOM_NS = 'urn:x-cast:wateva';
-     
-            const context = cast.framework.CastReceiverContext.getInstance();
-
-            const options = new cast.framework.CastReceiverOptions();
-            options.customNamespaces = Object.assign({});
-            options.customNamespaces[CUSTOM_NS] = cast.framework.system.MessageType.JSON;
-
-            context.addCustomMessageListener(CUSTOM_NS, (event) => {
-                console.log(event);
-            });
-
-            context.start(options);
-
-            setInterval(() => {
-                context.sendCustomMessage(CUSTOM_NS , { type:'status', message:'uhul' });
-            }, 5000);
-        
-        </script>
-    </body>
-
 </html>
