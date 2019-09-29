@@ -14,12 +14,17 @@
         <script>
      
             const context = cast.framework.CastReceiverContext.getInstance();
-            
-            context.addCustomMessageListener('urn:x-cast:com.luanlmd.cast-page', (event) => {
+            const CUSTOM_CHANNEL = 'urn:x-cast:com.luanlmd.cast-page';
+
+            context.addCustomMessageListener(CUSTOM_CHANNEL, (event) => {
                 console.log(event);
             });
 
             context.start();
+
+            setInterval(() => {
+                context.sendCustomMessage(CUSTOM_CHANNEL , undefined,  'myMessage');
+            }, 5000);
         
         </script>
     </body>
