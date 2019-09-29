@@ -12,18 +12,22 @@
     <body>
         <iframe src="https://www.eduzz.com" scrolling="no"></iframe>
         <script>
+            const CUSTOM_NS = 'urn:x-cast:com.luanlmd.cast-page';
      
             const context = cast.framework.CastReceiverContext.getInstance();
-            const CUSTOM_CHANNEL = 'urn:x-cast:com.luanlmd.cast-page';
+            const options = cast.framework.CastReceiverOptions();
+            options.customNamespaces = {
+                [CUSTOM_NS]: cast.framework.system.MessageType.JSON
+            };
 
-            context.addCustomMessageListener(CUSTOM_CHANNEL, (event) => {
+            context.addCustomMessageListener(CUSTOM_NS, (event) => {
                 console.log(event);
             });
 
             context.start();
 
             setInterval(() => {
-                context.sendCustomMessage(CUSTOM_CHANNEL , undefined,  'myMessage');
+                context.sendCustomMessage(CUSTOM_NS , { type:'test', value:'uhul' });
             }, 5000);
         
         </script>
