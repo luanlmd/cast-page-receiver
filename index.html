@@ -13,12 +13,13 @@
         <script>
             window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
             
-            const customMessageBus = window.castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.receiver');
+            const customMessageBus = window.castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.receiver', cast.receiver.CastMessageBus.MessageType.JSON);
             customMessageBus.onMessage = (event) => {
                 console.log(event);
             }
             
             window.castReceiverManager.start();
+
             
         </script>
     </body>
