@@ -14,7 +14,11 @@
         <script>
      
             const context = cast.framework.CastReceiverContext.getInstance();
-            const playerManager = context.getPlayerManager();
+            
+            context.addCustomMessageListener('urn:x-cast:com.google.cast.wateva', (event) => {
+                console.log(event);
+            });
+
             context.start();
         
         </script>
