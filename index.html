@@ -24,6 +24,9 @@
 
             context.addCustomMessageListener(CUSTOM_NS, (event) => {
                 console.log(event);
+                if (event.type == 'LOAD_URL') {
+                    document.getElementsByName('iframe')[0].src = event.message;
+                }
             });
 
             context.start(options);
