@@ -16,6 +16,11 @@
             window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
             window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
             window.castReceiverManager.start();
+
+            const customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.google.cast.receiver');
+            customMessageBus.onMessage = (event) => {
+                console.log(event);
+            }
         </script>
     </body>
 
