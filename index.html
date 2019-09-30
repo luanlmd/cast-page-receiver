@@ -24,9 +24,17 @@
 
             context.addCustomMessageListener(CUSTOM_NS, (event) => {
                 console.log(event);
+
                 if (event.data.type == 'LOAD_URL') {
                     console.log('loading ',event.data.url);
                     document.getElementsByTagName('iframe')[0].src = event.data.url;
+                    return;
+                }
+
+                if (event.data.type == 'REDIRECT_URL') {
+                    console.log('redirecting to ',event.data.url);
+                    document.getElementsByTagName('iframe')[0].src = event.data.url;
+                    return;
                 }
             });
 
