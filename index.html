@@ -41,10 +41,7 @@
             context.start(options);
 
             setInterval(() => {
-                context.sendCustomMessage(CUSTOM_NS, {
-                    type: 'status',
-                    message: 'Playing'
-                });
+                context.sendCustomMessage(CUSTOM_NS, undefined, { type: 'PING' });
             }, 5000);
         
         </script>
